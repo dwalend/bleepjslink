@@ -1,0 +1,36 @@
+$schema: https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json
+$version: 0.0.12
+jvm:
+  name: graalvm-java17:22.3.1
+projects:
+  Browser:
+    extends: template-js
+    platform:
+      mainClass: net.walend.link.Main
+    dependencies:
+      - org.scala-js::scalajs-dom:2.8.0
+templates:
+  template-common:
+    platform:
+      name: jvm
+    scala:
+      options: -encoding utf8 -feature -unchecked -deprecation -language:experimental.macros -language:higherKinds -Ykind-projector -Wvalue-discard -Wnonunit-statement -Wunused:implicits -Wunused:explicits -Wunused:imports -Wunused:locals -Wunused:params -Wunused:privates //-Wconf:any:warning-verbose
+      strict: true
+      version: 3.3.4
+  template-js:
+    platform:
+      name: js
+      jsNodeVersion: 21.7.2
+      jsVersion: 1.18.2
+    scala:
+      options: -encoding utf8 -feature -unchecked -deprecation -language:experimental.macros -language:higherKinds -Ykind-projector -Wvalue-discard -Wnonunit-statement -Wunused:implicits -Wunused:explicits -Wunused:imports -Wunused:locals -Wunused:params -Wunused:privates //-Wconf:any:warning-verbose
+      strict: true
+      version: 3.3.3
+  template-cross:
+    cross:
+      js:
+        extends: template-js
+      jvm:
+        extends: template-common
+
+    
