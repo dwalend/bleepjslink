@@ -1,6 +1,6 @@
 # bleepjslink
 
-A small demo to see bleep javascript link work in isolation
+A small demo to see bleep link work in isolation on javascript
 
 `bleep link` does not produce the main.js I expected:
 
